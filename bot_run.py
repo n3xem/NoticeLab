@@ -3,7 +3,7 @@ from discord.ext import tasks
 import discord
 import json
 import datetime
-from main import get_html_from_labpage, get_num_lab_dict, get_str_numjson_diff, dict2jsonfile
+from scrape import get_html_from_labpage, get_num_lab_dict, get_str_numjson_diff, dict2jsonfile
 
 
 def getMessage():

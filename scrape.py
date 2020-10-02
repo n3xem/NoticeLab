@@ -22,11 +22,19 @@ def get_html_from_labpage():
     ID = config_dict["ID"]
     PW = config_dict["PW"]
 
+    OS = config_dict["OS"]
+    CHROMEDRIVER_PATH = ''
+
+    if OS == "Windows10":
+        CHROMEDRIVER_PATH = './chromedriver.exe'
+    else:
+        CHROMEDRIVER_PATH = '/usr/bin/chromedriver'
+
     URL = 'https://www.mlab.im.dendai.ac.jp/bthesis2021/StudentDeploy.jsp'
 
     options = Options()
     options.add_argument('--headless')
-    driver = webdriver.Chrome('./chromedriver.exe', chrome_options=options)
+    driver = webdriver.Chrome(CHROMEDRIVER_PATH, chrome_options=options)
     driver.get(URL)
 
     driver.find_element_by_name('id').send_keys(ID)

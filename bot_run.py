@@ -58,8 +58,8 @@ async def on_message(message):
     if message.author.bot:
         return
     if message.content == '/graph':
-        await channel_sent.send('各研究室の希望人数をグラフで表示します', file=discord.File('figure.png'))
+        await channel_sent.send('各研究室の希望人数をグラフで表示します', file=discord.File('./image/figure.png'))
     elif message.content == '/sorted':
-        await channel_sent.send('各研究室の希望人数をソートしてグラフで表示します', file=discord.File('sorted.png'))
+        await channel_sent.send('各研究室の希望人数をソートしてグラフで表示します', file=discord.File('./image/sorted.png'))
 
 client.run(TOKEN)

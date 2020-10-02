@@ -38,19 +38,6 @@ def get_html_from_labpage():
     return page_source
 
 
-def get_student_lab_dict(page_source):
-    student_lab_dict = {}
-
-    soup = BeautifulSoup(page_source, 'html.parser')
-    rows = soup.select(".entry_table tbody tr:nth-of-type(n+2)")
-
-    for row in rows:
-        student_id = row.select_one('td:nth-child(1)').get_text()
-        lab = row.select_one('td:nth-child(3)').get_text().strip()
-        student_lab_dict[student_id] = lab
-    return student_lab_dict
-
-
 def get_num_lab_dict(page_source):
     num_lab_dict = {}
 
@@ -97,7 +84,6 @@ if __name__ == "__main__":
         with open(sys.argv[1]) as file:
             page_source = file.read()
 
-    student_lab_dict = get_student_lab_dict(page_source)
     num_lab_dict = get_num_lab_dict(page_source)
 
     before_num_lab_dict = {}
@@ -105,5 +91,4 @@ if __name__ == "__main__":
         before_num_lab_dict = json.load(file)
 
     print(get_str_numjson_diff(before_num_lab_dict, num_lab_dict))
-    dict2jsonfile(student_lab_dict, 'student_lab.json')
     dict2jsonfile(num_lab_dict, 'num_lab.json')

@@ -19,7 +19,6 @@ pip-selfcheck.json
 
 chromedriver.exe
 config.json
-graph.py
 index.html
 num_lab.json
 __pycache__

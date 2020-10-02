@@ -7,13 +7,6 @@ from bs4 import BeautifulSoup
 import json
 import sys
 
-config_dict = {}
-with open('config.json') as file:
-    config_dict = json.load(file)
-
-ID = config_dict["ID"]
-PW = config_dict["PW"]
-
 
 def dict2jsonfile(dict, filename):
     file = open(filename, 'w')
@@ -22,6 +15,13 @@ def dict2jsonfile(dict, filename):
 
 
 def get_html_from_labpage():
+    config_dict = {}
+    with open('config.json') as file:
+        config_dict = json.load(file)
+
+    ID = config_dict["ID"]
+    PW = config_dict["PW"]
+
     URL = 'https://www.mlab.im.dendai.ac.jp/bthesis2021/StudentDeploy.jsp'
 
     options = Options()

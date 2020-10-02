@@ -3,6 +3,7 @@ from discord.ext import tasks
 import discord
 import json
 import datetime
+import copy
 from scrape import get_html_from_labpage, get_num_lab_dict, get_str_numjson_diff, dict2jsonfile
 
 
@@ -11,8 +12,8 @@ def getMessage():
     num_lab_dict = get_num_lab_dict(page_source)
     sorted_num_lab_list = sorted(
         num_lab_dict.items(), key=lambda x: x[1], reverse=True)
-    make_graph(num_lab_dict, "figure.png")
-    make_sorted_graph(sorted_num_lab_list, "sorted.png")
+    make_graph(copy.copy(num_lab_dict), "./image/figure.png")
+    make_sorted_graph(copy.copy(sorted_num_lab_list), "./image/sorted.png")
 
     before_num_lab_dict = {}
     with open('num_lab.json') as file:

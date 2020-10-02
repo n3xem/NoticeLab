@@ -19,10 +19,8 @@ pip-selfcheck.json
 
 chromedriver.exe
 config.json
-figure.png
 graph.py
 index.html
 num_lab.json
-sorted.png
-student_lab.json
 __pycache__
+image/
